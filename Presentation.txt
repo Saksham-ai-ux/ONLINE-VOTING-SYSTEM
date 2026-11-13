@@ -1,0 +1,27 @@
+# 1-minute project presentation
+
+Good morning, sir.
+
+Our project is an **Online Voting System** developed using Java Swing, JDBC, and MySQL.
+
+The main objective is to make the voting process simple, organized, and less dependent on paper-based records.
+
+First, a voter registers using their name, a unique Voter ID, and a password. The voter then logs in and views the available candidates. After selecting a candidate and confirming the choice, the vote is stored in the MySQL database.
+
+To prevent duplicate voting, each voter can have only one vote. We enforce this through a unique database constraint, so even repeated attempts cannot create another vote. The result screen automatically counts votes for every candidate.
+
+Java Swing is used for the graphical interface, JDBC connects Java to MySQL, and MySQL stores voter, candidate, and vote records.
+
+Thank you.
+
+## If sir asks: What is JDBC?
+JDBC stands for Java Database Connectivity. It allows a Java application to connect to and execute SQL queries on a database.
+
+## If sir asks: How do you prevent duplicate voting?
+The `votes` table has a `UNIQUE` constraint on `voter_id`. Therefore, the database rejects a second vote from the same voter.
+
+## If sir asks: How are results calculated?
+We use SQL `COUNT()` with a `LEFT JOIN` between candidates and votes to count votes for each candidate, including candidates with zero votes.
+
+## If sir asks: Is this ready for real elections?
+No. It is an academic prototype. A real election system would require stronger identity verification, independent security audits, privacy safeguards, and legally compliant election procedures.
